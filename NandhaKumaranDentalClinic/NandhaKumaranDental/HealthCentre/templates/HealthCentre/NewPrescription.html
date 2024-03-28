@@ -26,59 +26,32 @@ Clinical-Prescription
     
 
     {% if successPrescriptionMessage %}
-        <br>
             <div style="text-align:center;margin:0 auto;"class="alert alert-warning" role="alert">
                 {{ successPrescriptionMessage }}
             </div>
     {% endif %}
-    <style>
-      .a-right {
-        position: fixed;
-        right: 50px;
-        margin-right: 5;
-      }
-      .a-left {
-        position: fixed;
-        left: 50px;
-      }
-      @media print {
-         .hide {
-          visibility: hidden;
-         } 
-      }  
-      .invisible{
-        display : none;
-      }
-      button.first{
-        position: absolute;
-      }
-      .hideout{
-        visibility : hidden;
-      }
-      .hidein{
-        visibility : none;
-      }
-    </style>
+   
     {% if request.session.isLoggedIn  %}
       {% if request.session.isDoctor %}
       <!-- <form align="left" action="{% url 'doctorprofile' %}" method="post" style="margin-right:5%"> -->
         {% csrf_token %}
-        <div class ="hide">
-       <div class = "button">
-        <a class="button" align = "right" type ="submit" style="color:rgb(30,126,216); margin-left: 3%;" href="{% url 'doctorprofile' %}">Write new prescription</a>
+        <div class = "headingHeader">
+        <a class="superbutton"  type ="submit"  href="{% url 'doctorprofile' %}">Write new prescription</a>
         <!-- <li class = "button"> --> <br>
-          <a class="button"  align = "right" type ="submit" style="color:rgb(30, 126, 216); margin-left: 3%;" href="{% url 'register' %}">Add new patient</a>
+        <a class="superbutton"  type ="submit"  href="{% url 'register' %}">Add new patient</a>
         <!-- </li> -->
-        <button class="button" id="generatePdfFile" align = "right" type ="submit" style="color:rgb(30, 126, 216); margin-left: 3%;" >Print/Save pdf</button>
+        <button class="superbutton" id="generatePdfFile"type ="submit" >Print/Save pdf</button>
+
+        <button class="hide superbutton" id="Addmed" type ="button" >Add new medicine</button>
+        <button id="closeaddmed" type="button" class="hide"><strong>x</strong></button>
+
         </div> 
     <!-- href="{% url 'generatePDF' %}" -->
-  </div>
-  <br>
           
-          <button class="hide" id="Addmed" align = "right" type ="button" >Add new medicine</button><button id="closeaddmed" type="button" class="hide"><strong>x</strong></button>
+          
         
         <!-- <button type="submit" name="writeNewPrescription" class="btn btn-warning btn-lg" action="{% url 'doctorprofile' %}">Write new prescription</button> -->
-        <form method = "post" id = "addnewmedicineform" action = "{% url 'createNewMedicine' %}">
+        <form method = "post" id = "addnewmedicineform" action = "{% url 'createNewMedicine' %}" >
           {% csrf_token %}
           <div id = "addnewmedicine" class = 'hideout'>
           <input name="NewmedicineName" placeholder="Medicine Name"></input>
@@ -122,7 +95,7 @@ Clinical-Prescription
         }
     </style>
     <!-- style="margin-right: 90%;" -->
-    <form class = "hide" method="post" enctype="multipart/form-data" action="{% url 'uploadImage' %}" >
+    <form class = "Backpanel" method="post" enctype="multipart/form-data" action="{% url 'uploadImage' %}" >
       {% csrf_token %}
         <label for="image">Upload logo or prescription header Image:</label>
         <input type="file" name="LogoImage" accept="image/*" required>
@@ -132,14 +105,13 @@ Clinical-Prescription
       
     </form>
     <br>
-        <form onsubmit="return checkConfirm()" action="{% url 'doctorprofile' %}" method="post" id="prescriptionForm">
+        <form onsubmit="return checkConfirm()" action="{% url 'doctorprofile' %}" method="post" id="prescriptionForm" class="Backpanel">
           {% csrf_token %}
           <div class="container center_div"style = "background:rgba(255,255,255);padding-top:2%;padding-bottom:2%" width="300px">  
           
             {% comment %} <img src="{% static 'HealthCentre/images/NandaLogo.jpg' %}" style="width:100%;height:100%;"></img> {% endcomment %}
-            <div style = "width:850px;height:200px; top : -10%;border: 1px solid #ccc;">
+            <div>
               <img src="..//{{doclogo}}" style="width:100%;height:100%;" ></img>
-    
             </div>
   
           <li class="dropdown-divider" style="margin-left:25%;margin-right:25%;border-color:black"></li>

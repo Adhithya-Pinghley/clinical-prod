@@ -17,21 +17,18 @@ Clinical-Appointment
 
 
 {% block body %}
-<h4 align = 'center'>Patient's Appointment</h4>
+<div class="headingHeader">
+  <h4 >Patient's Appointment</h4>
+</div>
 <li class="dropdown-divider" style="margin-left:25%;margin-right:25%;border-color:black"></li>
-<style>
-  /* .dropdown-menu {
-    max-height: 150px;
-    overflow-y: scroll; 
-  } */
 
-</style>
+
 {% if request.session.isLoggedIn  %}
       {% if request.session.isDoctor %}
       <!-- <form align="left" action="{% url 'doctorprofile' %}" method="post" style="margin-right:5%"> -->
         
-       <div class = "button">
-            <a class="button" align = "right" type ="submit" style="color:rgb(30, 126, 216)" href="{% url 'doctorappointments' %}">Create new appointment</a>
+       <div class = "superbutton">
+            <a class="button"  type ="submit" href="{% url 'doctorappointments' %}">Create new appointment</a>
        </div> 
       
       <br>
@@ -45,15 +42,17 @@ Clinical-Appointment
   
 {% endif %}
       {% if not request.session.appointmentEdit %}
-      <div class="jumbotron jumbotron-fluid" style = "margin:5%;padding:5%;margin-left: 30%;margin-right: 30%; background-color: rgba(30, 32, 45, 0.225);padding-top:2%;padding-bottom:2%" align ="center" width="300px">    
+      <div class="Backpanel">    
       <form action="{% url 'doctorappointments' %}" method="post" align="center">
         {% csrf_token %}
 
-        <div class="form-group" >
+        <div class="form-group">
 
-            <label  style="color:black">Please select a patient: </label>
-            <select name="selectedPatient" class="dropdown" placeholder="Select Patient" style="overflow-y: scroll;">
-              <option value = "">select patient</option>
+            <h5>
+              <label style="color:black">Please Select a Patient or Add New One</label>
+            </h5>
+            <select name="selectedPatient" class="inputBox" placeholder="Select Patient" style="text-align: center;overflow-y: scroll;">
+              <option value = "">Select Patient</option>
                 {% for patient in patients %}
                     <option value="{{ patient.name }}" >{{ patient.name }}</option>
                 {% endfor %}
@@ -61,18 +60,22 @@ Clinical-Appointment
                 <option value="{{ prescription.prescribingPatient }}">{{ prescription.prescribingPatient }}</option>
                 {% endfor %}
             </select>
-            <br>
-            <div class = "button">
-              <a class="button" align = "right" type ="submit" style="color:rgb(3, 0, 15)" href="{% url 'register' %}">Add new patient</a>
+            <div >
+              <a class="superbutton" type ="submit" style="background-color: whitesmoke;color: black" href="{% url 'register' %}">Add new patient</a>
             </div>
-         <br>
         </div>
-    <div class = "form-group">
+    
+      <div class = "form-group">
+      <div class="row">
+        <div class="col">
+          <input id ="datePick" name="datePick" type="date"  class="inputBox">
+        </div>
+        <div class="col">
+          <input id ="timePick" name="timePick" type ="time" class="inputBox">
+        </div>
+      </div>
       
-      <input id ="datePick" name="datePick" type="date" >
-      <input id ="timePick" name="timePick" type ="time">
       
-      <br>
 
       {% comment %} <label for="EnterTimeHour" style="color:rgb(3, 3, 3)">  Time(HH:MM)-</label>
       <select name="EnterTimeHour" id="EnterTimeHour" class = "form-group">
@@ -114,16 +117,14 @@ Clinical-Appointment
         
           <div class="form-group">
               <!-- <label for="exampleFormControlTextarea1" style = "color:white">Please type the symptoms.</label> -->
-              <textarea name = "AppointmentDescription" class="form-control"  rows="5" placeholder="Appointment Description"></textarea>
+              <textarea name = "AppointmentDescription" class="form-control "  rows="5" placeholder="Appointment Description"></textarea>
           </div>
-        <br>
             <!-- <input type="text" name="time" placeholder="Enter time"> -->
             <input type="submit" value="Submit">
             
           </form>
       </div>
           {% endif %}
-          <br>
         
               
           {% if request.session.appointmentEdit %}
@@ -159,7 +160,6 @@ Clinical-Appointment
               </select>
   
           </div>
-          <br>
       <div class = "form-group">
         
         <label for="EnterTimeHour" style="color:rgb(3, 3, 3)">  Time(HH:MM)-</label>

@@ -11,20 +11,25 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+import dj_database_url
+import environ
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2i#ra7wgn!2%2&)355v+i&dm(vv-v_a1y$=#jah_m7qi$8^706'
+SECRET_KEY = env('SECRET_KEY')
+#'2i#ra7wgn!2%2&)355v+i&dm(vv-v_a1y$=#jah_m7qi$8^706'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['*', 'https://9123-117-254-38-13.ngrok-free.app']
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+# , 'https://9123-117-254-38-13.ngrok-free.app']
 
 globalVar = ""
 globalDocName = ""
@@ -35,7 +40,7 @@ GLOBAL_DOC_NAME = ""
 WP_IS_CONNECTED = False
 # Application definition
 
-CSRF_TRUSTED_ORIGINS = ['https://9123-117-254-38-13.ngrok-free.app']
+# CSRF_TRUSTED_ORIGINS = ['https://']
 
 INSTALLED_APPS = [
     'HealthCentre.apps.HealthcentreConfig',
@@ -51,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,7 +96,7 @@ WSGI_APPLICATION = 'DentalCare.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {
+'''DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'CMS_DB',
@@ -99,6 +105,11 @@ DATABASES = {
        'HOST': 'localhost',
        'PORT': '5432',
    }
+}
+'''
+# PRODUCTION DATABASE
+DATABASES = {
+    'default' : dj_database_url.parse(env('DATABASE_URL'))
 }
 
 # Password validation
@@ -139,7 +150,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # WHATSAPP_API_SETTINGS = {
