@@ -7,8 +7,8 @@ WORKDIR /clinical-prod
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-COPY NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py .
+# COPY NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py .
 EXPOSE 8100
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8100"]
-CMD ["bash", "-c", "cd NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py && python manage.py runserver 0.0.0.0:8100"]
+CMD ["python", "NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py", "runserver", "0.0.0.0:8100"]
+# CMD ["bash", "-c", "cd NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py && python manage.py runserver 0.0.0.0:8100"]
 # CMD python manage.py runserver
