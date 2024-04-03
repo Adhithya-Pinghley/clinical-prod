@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 COPY . clinical-prod
 EXPOSE 8100
 # CMD ["python", "NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py", "runserver", "127.0.0.1:8100"]
-CMD python NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py runserver
+CMD python manage.py runserver
