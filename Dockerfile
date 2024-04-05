@@ -11,6 +11,6 @@ COPY . .
 # COPY NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py .
 EXPOSE 8100
 # CMD ["python", "NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py", "runserver", "0.0.0.0:8100"]
-CMD ["gunicorn", "/NandhaKumaranDentalClinic/NandhaKumaranDental/DentalCare.wsgi:application", "--bind", "0.0.0.0:8100"]
+CMD ["gunicorn", "/NandhaKumaranDentalClinic/NandhaKumaranDental/DentalCare.py:application", "--bind", "0.0.0.0:8100"]
 # CMD ["bash", "-c", "cd NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py && python manage.py runserver 0.0.0.0:8100"]
 # CMD python manage.py runserver
