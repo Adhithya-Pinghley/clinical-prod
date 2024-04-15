@@ -84,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DentalCare.wsgi.application'
+WSGI_APPLICATION = 'NandhaKumaranDentalClinic.NandhaKumaranDental.DentalCare.wsgi.application'
 
 
 # Database

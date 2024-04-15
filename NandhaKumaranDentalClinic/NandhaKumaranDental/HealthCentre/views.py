@@ -12,7 +12,7 @@ from django.utils import timezone
 from django.shortcuts import render
 import threading
 import sys, os
-import pyautogui
+# import pyautogui
 import openpyxl
 from django.db import connections, IntegrityError
 from django.core.exceptions import ValidationError
@@ -1675,7 +1675,7 @@ def generatePDF(request):
     if request.method == "GET":
         global rowCount
         global additionalRowData
-        pyautogui.hotkey('ctrl', 'p')
+        # pyautogui.hotkey('ctrl', 'p')
         # prescriptionTemplate = (get_template("HealthCentre/NewPrescription.html"))
         addedData = request.session.get('additionalSession_data', {})
         addedData2 = request.session.get('additionalMedicine_data', {})

@@ -1,5 +1,5 @@
 """
-WSGI config for IITJHealthCare project.
+WSGI config for DentalCare project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
