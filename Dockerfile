@@ -17,5 +17,5 @@ EXPOSE 8100
 # CMD ["gunicorn", "DentalCare.wsgi.application", "--bind", "0.0.0.0:8100"] NandhaKumaranDentalClinic.NandhaKumaranDental.
 # CMD ["bash", "-c", "cd NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py && python manage.py runserver 0.0.0.0:8100"]
 # CMD python NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py runserver
-CMD gunicorn NandhaKumaranDentalClinic.NandhaKumaranDental.DentalCare.wsgi:application --bind 0.0.0.0:8100
+CMD gunicorn DentalCare.wsgi:application --bind 0.0.0.0:8100
 # NandhaKumaranDentalClinic.NandhaKumaranDental.
