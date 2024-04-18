@@ -6,9 +6,9 @@
     "configurations": [
         {
             "name": "Python: Django",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\NandhaKumaranDentalClinic\\NandhaKumaranDental\\manage.py",
+            "program": "${workspaceFolder}\\manage.py",
             "args": [
                 "runserver",
                 "localhost:9000"
