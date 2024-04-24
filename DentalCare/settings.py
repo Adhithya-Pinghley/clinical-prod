@@ -40,7 +40,7 @@ GLOBAL_DOC_NAME = ""
 WP_IS_CONNECTED = False
 # Application definition
 
-CSRF_TRUSTED_ORIGINS = ['https://clinical-prod-dev-fzgh.2.sg-1.fl0.io/register']
+CSRF_TRUSTED_ORIGINS = ['https://clinical-prod-dev-fzgh.2.sg-1.fl0.io']
 
 INSTALLED_APPS = [
     'HealthCentre.apps.HealthcentreConfig',
