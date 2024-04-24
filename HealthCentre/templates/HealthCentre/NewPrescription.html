@@ -111,7 +111,9 @@ Clinical-Prescription
           
             {% comment %} <img src="{% static 'HealthCentre/images/NandaLogo.jpg' %}" style="width:100%;height:100%;"></img> {% endcomment %}
             <div>
-              <img src="..//{{doclogo}}" style="width:100%;height:100%;" ></img>
+              <img src="{% static '{{doclogo}}' %}" style="width:100%;height:100%;" ></img>
+              
+              {% comment %} <img src="..//{{doclogo}}" style="width:100%;height:100%;" ></img> {% endcomment %}
             </div>
   
           <li class="dropdown-divider" style="margin-left:25%;margin-right:25%;border-color:black"></li>

@@ -23,7 +23,8 @@ class Doctor(models.Model):
 class doctorlogo(models.Model):
     doctorid = models.ForeignKey(Doctor, related_name = "docid", on_delete = models.CASCADE, db_column = 'doctorid')
     docname = models.CharField(max_length = 100)
-    logo = models.ImageField(upload_to=r'NandhaKumaranDentalClinic\NandhaKumaranDental\HealthCentre\static\HealthCentre\images', null=True, blank=True)
+    logo = models.ImageField(upload_to=r'static\HealthCentre\images', null=True, blank=True)
+    # HealthCentre\static\HealthCentre\images
 class Patient(models.Model):
     name = models.CharField(unique = True, max_length = 30)
     address = models.CharField(max_length = 2000)

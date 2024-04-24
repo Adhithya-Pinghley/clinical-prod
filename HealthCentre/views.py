@@ -20,7 +20,7 @@ from django.apps import apps
 import requests
 import zipfile
 from django.conf import settings
-from WPP_Whatsapp import Create, PlaywrightSafeThread
+# from WPP_Whatsapp import Create, PlaywrightSafeThread
 from weasyprint import HTML, CSS
 import pdfkit
 from django.template.loader import render_to_string, get_template

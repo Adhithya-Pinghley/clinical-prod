@@ -96,7 +96,8 @@ WSGI_APPLICATION = 'DentalCare.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-'''DATABASES = {
+'''
+DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'CMS_DB',

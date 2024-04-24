@@ -1,8 +1,8 @@
-from WPP_Whatsapp import Create, PlaywrightSafeThread, Whatsapp
+from WPP_Whatsapp import Create
 from django.conf import settings
 import time
 from concurrent import futures
-from playwright._impl import _api_types 
+# from playwright._impl import _api_types 
 # if __name__ == '__main__':
     # from .views import catchgenqr
 # import psutil
@@ -63,11 +63,11 @@ class openWhatsapp():
             settings.WP_IS_CONNECTED = True
         # return client
         time.sleep(5)
-        try:
-            client.close()
-        except _api_types.Error:
-            time.sleep(5)
-            client.close()
+        # try:
+        client.close()
+        # except _api_types.Error:
+        #     time.sleep(5)
+        #     client.close()
 
 def whatsappApi(patientName, doctorName, whatsappNumber, time_, date, clinicName):
     # reclient= openWhatsapp.client
@@ -89,11 +89,11 @@ def whatsappApi(patientName, doctorName, whatsappNumber, time_, date, clinicName
     dumSess = sessStart.session
     result = sessStart.sendText(phone_number, message)
     time.sleep(5)
-    try:
-        sessStart.close()
-    except _api_types.Error or futures._base.TimeoutError():
-        time.sleep(5)
-        pass
+    # try:
+    sessStart.close()
+    # except _api_types.Error or futures._base.TimeoutError():
+    #     time.sleep(5)
+    #     pass
         # sessStart.close()
         
 def whatsappApiDoc(doctorName, whatsappNumber, time_, date):
@@ -116,11 +116,11 @@ def whatsappApiDoc(doctorName, whatsappNumber, time_, date):
     dumSess = sessStart.session
     result = sessStart.sendText(phone_number, message)
     time.sleep(5)
-    try:
-        sessStart.close()
-    except _api_types.Error:
-        time.sleep(5)
-        pass
+    # try:
+    sessStart.close()
+    # except _api_types.Error:
+    #     time.sleep(5)
+    #     pass
         # sessStart.close()
     
 def whatsappApiEdit(patientName, doctorName, whatsappNumber, time_, date, clinicName):
@@ -141,12 +141,12 @@ def whatsappApiEdit(patientName, doctorName, whatsappNumber, time_, date, clinic
         sessStart.close()
     result = sessStart.sendText(phone_number, message)
     time.sleep(5)
-    try:
-        sessStart.close()
-    except _api_types.Error:
-        time.sleep(5)
-        # sessStart.close()
-        pass
+    # try:
+    sessStart.close()
+    # except _api_types.Error:
+    #     time.sleep(5)
+    #     # sessStart.close()
+    #     pass
     
 def whatsappMedia(whatsappNumber, pdfPathForWP, docName, patientName, prescDate):
     from .views import catchgenqr
@@ -168,12 +168,12 @@ def whatsappMedia(whatsappNumber, pdfPathForWP, docName, patientName, prescDate)
     dumSess = sessStart.session
     result = sessStart.sendFile(phone_number, path, name, caption )
     time.sleep(5)
-    try:
-        sessStart.close()
-    except _api_types.Error:
-        time.sleep(5)
-        # sessStart.close()
-        pass
+    # try:
+    sessStart.close()
+    # except _api_types.Error:
+    #     time.sleep(5)
+    #     # sessStart.close()
+    #     pass
     # message = openWhatsapp.client.sendMessageOptions()
 
 
