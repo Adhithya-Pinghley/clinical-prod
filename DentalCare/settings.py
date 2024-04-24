@@ -28,7 +28,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://clinical-prod-dev-fzgh.2.sg-1.fl0.io/register']
 # , 'https://9123-117-254-38-13.ngrok-free.app']
 
 globalVar = ""
@@ -40,7 +40,7 @@ GLOBAL_DOC_NAME = ""
 WP_IS_CONNECTED = False
 # Application definition
 
-# CSRF_TRUSTED_ORIGINS = ['https://']
+CSRF_TRUSTED_ORIGINS = ['https://clinical-prod-dev-fzgh.2.sg-1.fl0.io/register']
 
 INSTALLED_APPS = [
     'HealthCentre.apps.HealthcentreConfig',
