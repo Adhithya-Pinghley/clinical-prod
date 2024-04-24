@@ -26,8 +26,8 @@ import pdfkit
 from django.template.loader import render_to_string, get_template
 from jinja2 import Template
 import asyncio
-if ('runserver' in sys.argv):
-    from .Whatsapptestfile import whatsappApi, openWhatsapp, whatsappApiEdit, whatsappMedia, whatsappApiDoc
+# if ('runserver' in sys.argv):
+from .Whatsapptestfile import whatsappApi, openWhatsapp, whatsappApiEdit, whatsappMedia, whatsappApiDoc
     # import Whatsapptestfile
 
 renderedHTML = " "
