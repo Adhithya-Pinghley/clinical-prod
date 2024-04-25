@@ -10,6 +10,7 @@ COPY requirements.txt .
 # RUN .venv/Scripts/Activate.ps1
 RUN pip install -r requirements.txt
 COPY . .
+RUN playwright install-deps
 # COPY NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py .
 EXPOSE 8100
 # CMD ["python", "/NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py", "runserver", "0.0.0.0:8100"]
