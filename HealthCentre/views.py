@@ -1016,6 +1016,7 @@ def doctorprofile(request):
         request.session['writeNewPrescription'] = True
         
         if request.GET.get('noofdays') == None and request.GET.get('SelectedMed') == None and request.GET.get('SelectedPat') == None and request.GET.get('SelectedSess') == None:
+            docn = request.session['Name']
             doctorSpecific = Patient.objects.filter(doctorname = request.session['Name']).order_by('name')
             clickedOnAddRow = True
             medicineIsSelected = True
