@@ -15,7 +15,8 @@ RUN playwright install-deps
 EXPOSE 8100
 # CMD ["python", "/NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py", "runserver", "0.0.0.0:8100"]
 # CMD ["gunicorn", "NandhaKumaranDentalClinic.NandhaKumaranDental.DentalCare.wsgi:application", "--bind", "0.0.0.0:8100"]
-ENTRYPOINT ["gunicorn", "DentalCare.wsgi:application"]
+# ENTRYPOINT ["gunicorn", "DentalCare.wsgi:application"]
+ENTRYPOINT ["/bin/sh", "-c", "xvfb-run --auto-servernum gunicorn DentalCare.wsgi:application"]
 # CMD ["bash", "-c", "cd NandhaKumaranDentalClinic\NandhaKumaranDental\manage.py && python manage.py runserver 0.0.0.0:8100"]
 # CMD python NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py runserver
 # CMD gunicorn DentalCare.wsgi:application --bind 0.0.0.0:8100
