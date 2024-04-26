@@ -132,16 +132,16 @@ def whatsappApiEdit(patientName, doctorName, whatsappNumber, time_, date, clinic
     Sesscreator = Create(session=doctorName, catchQR= catchgenqr, logQR= True)
     sess = Sesscreator.session
     global client
-    try:
-        sessStart = Sesscreator.start()
-        print("starting whatsapp session...")
-        if sessStart.waitForLogin():
-            print("waiting for whatsapp session login...")
-            time.sleep(10)
-            print("browser must be open...")
-    except futures._base.TimeoutError():
-        result = sessStart.sendText(phone_number, message)
-        sessStart.close()
+    # try:
+    sessStart = Sesscreator.start()
+    print("starting whatsapp session...")
+    if sessStart.waitForLogin():
+        print("waiting for whatsapp session login...")
+        time.sleep(10)
+        print("browser must be open...")
+    # except futures._base.TimeoutError():
+        # result = sessStart.sendText(phone_number, message)
+        # sessStart.close()
     result = sessStart.sendText(phone_number, message)
     print("text message sent...")
     time.sleep(5)
