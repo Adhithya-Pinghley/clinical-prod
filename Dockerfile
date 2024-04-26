@@ -11,6 +11,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 RUN playwright install-deps
+RUN apt-get update && apt-get install -y xvfb xauth
 # COPY NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py .
 EXPOSE 8100
 # CMD ["python", "/NandhaKumaranDentalClinic/NandhaKumaranDental/manage.py", "runserver", "0.0.0.0:8100"]
